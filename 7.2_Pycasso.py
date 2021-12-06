@@ -14,7 +14,29 @@ Then add a comment at the top telling the reader what you are drawing.
 IN THE WINDOW TITLE PLEASE PUT YOUR NAME.
 When you are finished Pull Request your file to your instructor.
 '''
+import arcade
+SW = 500
+SH = 400
+#Start of the picture
+arcade.open_window(SW, SH, "Zachary Blum's Flappy Bird", True)
+arcade.set_background_color(arcade.color.ALMOND)
+arcade.start_render()
+
+for i in range(0, SW+1, 20):
+    arcade.draw_line(i, 0, i, 400, arcade.color.BLACK)
+    arcade.draw_line(0, i, 500, i, arcade.color.BLACK)
+
+#Wings, Body, and Mouth
+arcade.draw_circle_filled(SW/2, SH/2, 150, arcade.color.YELLOW, 0)
+arcade.draw_ellipse_filled(SW/2+100, SH/2-30, 200, 75, arcade.color.CYBER_YELLOW, 180, 0)
+arcade.draw_ellipse_filled(SW/4, SH/2, 150, 75, arcade.color.ORANGE, 180, 0)
 
 
 
+#Eye
+arcade.draw_circle_filled(SW/2, SH/2+40, 50, arcade.color.WHITE, 0)
+arcade.draw_ellipse_filled(SW/2, SH/2+40, 30, 50, arcade.color.BLACK, 180, 0)
 
+arcade.draw_line(SW/2+30, SH/2-30, SW/2+200, SH/2-30, arcade.color.BLACK, 1)
+arcade.finish_render()
+arcade.run()
